@@ -4,9 +4,9 @@
 
 .entrada {
   display: flex;
-  flex-flow:row;
+  flex-flow:column;
   flex-wrap: wrap;
-  padding: 50px;
-  gap: 20px;
+  padding: 10px;
+  /*gap: 20px;*/
 
 }

@@ -19,7 +19,9 @@ export default function AddNumeros({ setArrayNumeros }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <p> Entre los números que quiere añadir al array</p>
       <input type="num" value={inputValue} onChange={handleInputChange} />
+      <hr></hr>
     </form>
   );
 }

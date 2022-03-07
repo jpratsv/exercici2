@@ -10,7 +10,7 @@ export const EntraArray = () => {
       <h2>Entrada de los elementos del Array</h2>
       <div className="entrada">
         <AddNumeros setArrayNumeros={setArrayNumeros} />
-        <EntraPosicio arrayNumeros={setArrayNumeros} />
+        <EntraPosicio setArrayNumeros={setArrayNumeros} />
       </div>
       <hr />
       <ol>

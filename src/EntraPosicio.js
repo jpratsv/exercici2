@@ -2,37 +2,71 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 export default function EntraPosicio({ setArrayNumeros }) {
- 
+  const [inputValue, setInputValue] = useState("");
+  const [inputPosition, setInputPosition] = useState("");
 
-  const [inputValue, setInputValue] = useState(""); 
-
-  const handleInputChange = (e) => {
+  //---------------------------------------------------------------
+  //   Entra el valor.
+  //---------------------------------------------------------------
+  const handleInputChangeValor = (e) => {
     setInputValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmitValor = (e) => {
     e.preventDefault();
-
-  let ValorEntrado = +(inputValue.trim())
-    if (ValorEntrado > 0) {
-      if (ValorEntrado < arrayNumeros.length) {
-        let total = arrayNumeros.length;
-        console.log(arrayNumeros);
-        console.log(arrayNumeros.length);
-        console.log(ValorEntrado);
-        // console.log(ultimo);
-        console.log(arrayNumeros[total]);
-        setArrayNumeros(arrayNumeros.splice(ValorEntrado, 0, arrayNumeros[total -1]))
-        ;
-        // arrayNumeros((cats) => [...cats, inputValue]);
-        setInputValue("");
-      }
-    }
   };
 
+  //---------------------------------------------------------------
+  //   Entra la posicion.
+  //---------------------------------------------------------------
+  const handleInputChangePosition = (e) => {
+    setInputPosition(e.target.value);
+  };
+
+  const handleSubmitPosition = (e) => {
+    e.preventDefault();
+
+    let valorPosicion = +inputPosition.trim();
+    let valorEntrado = +inputValue.trim();
+
+    if (valorEntrado > 0) {
+      setArrayNumeros((numerosOriginals) => {
+        const copiaDelsNumeros = [...numerosOriginals];
+        let total = copiaDelsNumeros.length;
+
+        if (valorPosicion < total) {
+          console.log(total);
+          console.log(copiaDelsNumeros);
+          // console.log(ultimo);
+          console.log(copiaDelsNumeros[total - 1]);
+          copiaDelsNumeros.splice(valorPosicion - 1, 0, valorEntrado);
+          // arrayNumeros((cats) => [...cats, inputValue]);
+          setInputValue("");
+          setInputPosition("");
+        }
+        return copiaDelsNumeros;
+      });
+    }
+  };
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="num" value={inputValue} onChange={handleInputChange} />
-    </form>
+    <>
+      <form onSubmit={handleSubmitValor}>
+        <p>Entre el valor que quiere adicionar</p>
+        <input
+          type="num"
+          value={inputValue}
+          onChange={handleInputChangeValor}
+        />
+      </form>
+
+      <form onSubmit={handleSubmitPosition}>
+        <p>Entre la posicion donde quiere que pase el valor</p>
+        <input
+          type="num"
+          value={inputPosition}
+          onChange={handleInputChangePosition}
+        />
+      </form>
+    </>
   );
 }
