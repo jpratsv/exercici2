@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 
 export default function EntraPosicio({ setArrayNumeros }) {
   const [inputValue, setInputValue] = useState("");
@@ -34,7 +33,7 @@ export default function EntraPosicio({ setArrayNumeros }) {
         const copiaDelsNumeros = [...numerosOriginals];
         let total = copiaDelsNumeros.length;
 
-        if (valorPosicion < total) {
+        if (valorPosicion <= total) {
           console.log(total);
           console.log(copiaDelsNumeros);
           // console.log(ultimo);

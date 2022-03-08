@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-export default function AddNumeros({ setArrayNumeros }) {
+export default function EntraNumeros({ setArrayNumeros }) {
   const [inputValue, setInputValue] = useState("");
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -26,6 +26,6 @@ export default function AddNumeros({ setArrayNumeros }) {
   );
 }
 
-AddNumeros.propTypes = {
+EntraNumeros.propTypes = {
   setArrayNumeros: PropTypes.func.isRequired,
 };

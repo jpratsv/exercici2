@@ -1,10 +1,10 @@
- import './App.css';
-import { EntraArray } from "./EntraArray";
+import './App.css';
+import { AfegirElement } from "./AfegirElement";
 
 function App() {
   return (
     <div className="App">
-      <EntraArray/>
+      <AfegirElement/>
         
     </div>
   );
